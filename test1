@@ -1,1 +1,13 @@
 我要开始一个新项目
+    Cancel = -1
+    If MsgBox("确定要退出本系统吗？", vbYesNo) = vbYes Then
+        Cancel = 0 '退出
+        Call Shell_NotifyIcon(NIM_DELETE, nfIconData)
+        End
+    Else
+        Cancel = -1 '最小化
+        Sys_Tray
+        With Me
+            .Visible = False
+        End With
+    End If
